@@ -56,7 +56,6 @@ module AwesomePrint
       @options = { 
         :indent     => 4,      # Indent using 4 spaces.
         :index      => true,   # Display array indices.
-        :html       => false,  # Use ANSI color codes rather than HTML.
         :multiline  => true,   # Display in multiple lines.
         :plain      => false,  # Use colors.
         :raw        => false,  # Do not recursively format object instance variables.
