@@ -32,4 +32,30 @@ module AwesomePrint
       METHOD_NAMES.include?(method)
     end
   end
+  #
+  # The following causes exception with RubyMotion 1.2.4, see
+  # https://gist.github.com/3759094 for details.
+  #
+  # module Painter
+  #   extend self
+  #   #
+  #   # ANSI color codes:
+  #   #   \e => escape
+  #   #   30 => color base
+  #   #    1 => bright
+  #   #    0 => normal
+  #   #
+  #   %w(gray red green yellow blue purple cyan white).each_with_index do |color, i|
+  #     define_method color do |str|
+  #       "\e[1;#{30+i}m#{str}\e[0m"
+  #     end
+  #
+  #     define_method "#{color}ish" do |str|
+  #       "\e[0;#{30+i}m#{str}\e[0m"
+  #     end
+  #   end
+  #
+  #   alias :black :grayish
+  #   alias :pale  :whiteish
+  # end
 end

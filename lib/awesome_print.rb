@@ -15,12 +15,4 @@ Motion::Project::App.setup do |app|
   Dir.glob("#{File.dirname(__FILE__)}/awesome_print/*.rb").each do |file|
     app.files.unshift(file)
   end
-
-  # %w(array string method object class kernel).each do |file|
-  #   app.files << File.expand_path(File.dirname(__FILE__) + "/awesome_print/core_ext/#{file}")
-  #   app.files.unshift(file)
-  # end
-  # %w(inspector formatter version).each do |file|
-  #   app.files << File.expand_path(File.dirname(__FILE__) + "/awesome_print/#{file}")
-  # end
 end
