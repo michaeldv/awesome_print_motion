@@ -117,6 +117,7 @@ module AwesomePrint
     #------------------------------------------------------------------------------
     def awesome_object(o)
       vars = o.instance_variables.map do |var|
+        next if var =~ /^__.*?__$/               # Skip internal RubyMotion variables.
         property = var[1..-1].to_sym
         accessor = if o.respond_to?(:"#{property}=")
           o.respond_to?(property) ? :accessor : :writer
@@ -130,7 +131,7 @@ module AwesomePrint
         end
       end
 
-      data = vars.sort.map do |declaration, var|
+      data = vars.compact.sort.map do |declaration, var|
         key = left_aligned do
           align(declaration, declaration.size)
         end
@@ -224,7 +225,9 @@ module AwesomePrint
       tuples = a.map do |name|
         if name.is_a?(Symbol) || name.is_a?(String)         # Ignore garbage, ex. 42.methods << [ :blah ]
           tuple = if object.respond_to?(name, true)         # Is this a regular method?
-            the_method = object.method(name) rescue nil     # Avoid potential ArgumentError if object#method is overridden.
+            the_method = silently do                        # Suppress RubyMotion warnings.
+              object.method(name) rescue nil                # Avoid potential ArgumentError if object#method is overridden.
+            end
             if the_method && the_method.respond_to?(:arity) # Is this original object#method?
               method_tuple(the_method)                      # Yes, we are good.
             end
@@ -327,6 +330,13 @@ module AwesomePrint
       yield
     ensure
       @options[:indent] = current
+    end
+
+    def silently
+      current, Exception.log_exceptions = Exception.log_exceptions, false
+      yield
+    ensure
+      Exception.log_exceptions = current
     end
 
     def indent
