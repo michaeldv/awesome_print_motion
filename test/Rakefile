@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+puts $:.inspect
+require "motion/project"
+require "quickie_motion"
+require File.expand_path(File.dirname(__FILE__) + "/../lib/awesome_print_motion")
+
+Motion::Project::App.setup do |app|
+  app.name = "awesome_print_test"
+end

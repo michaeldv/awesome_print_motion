@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    awesome_print_motion (0.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rake (0.9.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print_motion!
+  rake

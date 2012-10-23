@@ -15,10 +15,11 @@ Gem::Specification.new do |s|
   s.summary     = "Pretty print RubyMotion objects with proper indentation and colors"
   s.description = "Great RubyMotion dubugging companion: pretty print RubyMotion objects to visualize their structure"
 
-  s.files         = Dir["[A-Z]*[^~|lock]"] + Dir["lib/**/*.rb"] + Dir["spec/*"] + [".gitignore"]
-  s.test_files    = Dir["spec/*"]
+  s.files         = Dir["[A-Z]*[^~|lock]"] + Dir["lib/**/*.rb"] + [".gitignore"]
+  s.test_files    = Dir["test/*"]
   s.executables   = []
   s.require_paths = ["lib"]
 
+  s.add_development_dependency "quickie"
   s.add_development_dependency "rake"
 end

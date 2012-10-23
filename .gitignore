@@ -1,24 +1,27 @@
-## MAC OS
+# Mac OS
 .DS_Store
 
-## TEXTMATE
+# TextMate
 *.tmproj
 tmtags
 
-## EMACS
+# Emacs
 *~
 \#*
 .\#*
 
-## VIM
+# Vim
 *.swp
 
-## PROJECT::GENERAL
+# Gem
 coverage
 rdoc
 pkg
-Gemfile.lock
-
-## PROJECT::SPECIFIC
 .rvmrc
-.idea
+
+# Test
+test/.repl_history
+test/build
+test/resources/*.nib
+test/resources/*.momd
+test/resources/*.storyboardc
