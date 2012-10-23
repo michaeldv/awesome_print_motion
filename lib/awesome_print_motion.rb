@@ -8,11 +8,11 @@ unless defined?(Motion::Project::Config)
 end
 
 Motion::Project::App.setup do |app|
-  Dir.glob("#{File.dirname(__FILE__)}/awesome_print/core_ext/*.rb").each do |file|
+  Dir.glob("#{File.dirname(__FILE__)}/awesome_print_motion/core_ext/*.rb").each do |file|
     app.files.unshift(file)
   end
 
-  Dir.glob("#{File.dirname(__FILE__)}/awesome_print/*.rb").each do |file|
+  Dir.glob("#{File.dirname(__FILE__)}/awesome_print_motion/*.rb").each do |file|
     app.files.unshift(file)
   end
 end

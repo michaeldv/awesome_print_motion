@@ -13,13 +13,12 @@ Gem::Specification.new do |s|
   s.email       = "mike@dvorkin.net"
   s.homepage    = "http://github.com/michaeldv/awesome_print_motion"
   s.summary     = "Pretty print RubyMotion objects with proper indentation and colors"
-  s.description = "Great Ruby dubugging companion: pretty print Ruby objects to visualize their structure"
+  s.description = "Great RubyMotion dubugging companion: pretty print RubyMotion objects to visualize their structure"
 
   s.files         = Dir["[A-Z]*[^~|lock]"] + Dir["lib/**/*.rb"] + Dir["spec/*"] + [".gitignore"]
   s.test_files    = Dir["spec/*"]
   s.executables   = []
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "bacon"
   s.add_development_dependency "rake"
 end
