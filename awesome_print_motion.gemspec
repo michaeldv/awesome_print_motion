@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
   s.executables   = []
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "quickie"
+  s.add_development_dependency "quickie_motion"
   s.add_development_dependency "rake"
 end
