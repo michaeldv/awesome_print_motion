@@ -118,6 +118,7 @@ module AwesomePrint
     def awesome_object(o)
       vars = o.instance_variables.map do |var|
         next if var =~ /^__.*?__$/               # Skip internal RubyMotion variables.
+
         property = var[1..-1].to_sym
         accessor = if o.respond_to?(:"#{property}=")
           o.respond_to?(property) ? :accessor : :writer
@@ -221,6 +222,8 @@ module AwesomePrint
     #------------------------------------------------------------------------------
     def methods_array(a)
       a.sort! { |x, y| x.to_s <=> y.to_s }                  # Can't simply a.sort! because of o.methods << [ :blah ]
+      a.reject! { |y| y =~ /^attentionClassDumpUser/ }      # BS var from class-dump. see http://openradar.appspot.com/7044974
+
       object = a.instance_variable_get('@__awesome_methods__')
       tuples = a.map do |name|
         if name.is_a?(Symbol) || name.is_a?(String)         # Ignore garbage, ex. 42.methods << [ :blah ]
