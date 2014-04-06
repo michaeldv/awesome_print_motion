@@ -16,6 +16,12 @@ module Kernel
     object unless AwesomePrint.console?
   end
   alias :awesome_print :ap
+  
+  def nsap(object, options = {})
+    NSLog object.ai(options)
+    object unless AwesomePrint.console?
+  end
+  alias :ns_awesome_print :nsap
 
   module_function :ap
 end
