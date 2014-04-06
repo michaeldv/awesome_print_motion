@@ -54,7 +54,7 @@ AwesomePrint also becomes available in RubyMotion console:
     => nil
     (main)> ap [1,2,3]
 
-There are some ocassions where the framework's `NSLog` has qualities that traditional ruby `puts` does not.  `NSLog` timestamps output and can be found in crash logs.  For these situations you can use `nsap` in place of `ap`.
+There are some occasions where the framework's `NSLog` has qualities that traditional ruby `puts` does not.  `NSLog` timestamps output and can be found in crash logs.  For these situations you can use `nsap` in place of `ap`.
 
 Supported options and color codes are documented at http://github.com/michaeldv/awesome_print. 
 
