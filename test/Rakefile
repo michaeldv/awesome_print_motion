@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
-require "motion/project"
+require "motion/project/template/ios"
 require "quickie_motion"
 require File.expand_path(File.dirname(__FILE__) + "/../lib/awesome_print_motion")
 

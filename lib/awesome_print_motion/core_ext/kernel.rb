@@ -12,7 +12,11 @@ module Kernel
   alias :awesome_inspect :ai
 
   def ap(object, options = {})
-    puts object.ai(options)
+    if defined?(BubbleWrap)
+      puts object.ai(options) if BubbleWrap.debug? == true
+    else
+      puts object.ai(options)
+    end
     object unless AwesomePrint.console?
   end
   alias :awesome_print :ap
